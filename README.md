@@ -4,12 +4,20 @@ Portowanie aplikacji webowej w chmurze
 GigaSpaces XAP
 --------------
 
+[Plan](#plan)
+
 [Charakterystyka XAP](#charakterystyka-xap)
 
 [Wrażenia z QuickStart](#quickstart)
 
 [Deploy aplikacji webowej](#deploy-aplikacji-webowej)
 
+### Plan ###
+
+* Konfiguracja space'a tak żeby korzystał z Hibernate'a
+([tutorial](http://docs.gigaspaces.com/xap97/hibernate-space-persistency.html))
+* Znalezienie przykładowej aplikacji webowej, którą odpalimy na XAP
+i AWS.
 
 ### Charakterystyka XAP ###
 
