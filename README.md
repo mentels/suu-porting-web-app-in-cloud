@@ -24,6 +24,10 @@ platformie wraz ze wszystkimi potrzebnymi zależnościami
 co jest potrzebne do działania. Może ona się automatycznie dostosowywać
 do aktualnego obciążenia.
 
+Architektura XAP:
+
+![alt text](http://d3a0pn6rx5g9yg.cloudfront.net/sites/default/files/xap_summer/big_big_image.png)
+
 ### QuickStart ###
 
 Na tym etapie udało się skonfigurować środowisko developerskie, postawić
@@ -46,13 +50,14 @@ to potem znaleźć
 
 ### Deploy aplikacji webowej ###
 
-Operate [tutorialu](http://docs.gigaspaces.com/xap97/step-1---deploying-your-web-application-to-the-gigaspaces-environment.html#DeployDirections)
+Operate na [tutorialu](http://docs.gigaspaces.com/xap97/step-1---deploying-your-web-application-to-the-gigaspaces-environment.html#DeployDirections)
 
 1. Odpalamy GS agent’a, który startuje nam GSM (Gigaspaces Service
 Manger) i 2x GSC (Gigaspace Service Container)
-1. Deploy’u można dokonać na trzy sposoby: (Docs/deploying)
-1. UI - mamy do tego dostępny wizzard
-  1. Skrypt dostarczony przez gigaspaces
+1. Deploy’u można dokonać na trzy sposoby:
+  1. UI - mamy do tego dostępny wizzard
+  1. Skrypt dostarczony przez gigaspaces - podajemy ścieżkę do
+  aplikacji jako argument wywołania
   1. Przez skrypt, który dostarczamy z aplikacją - w pliku build.xml
   po prostu dowołujemy się do odpowiedniego API dostarczonego przez XAP’a
 1. Defaultowo GigaSpaces używa Jetty Web Container - taki kontener
