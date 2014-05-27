@@ -12,6 +12,8 @@ GigaSpaces XAP
 
 [Deploy aplikacji webowej](#deploy-aplikacji-webowej)
 
+Testy obciążeniowe
+
 ### Plan ###
 
 * Konfiguracja space'a tak żeby korzystał z Hibernate'a
