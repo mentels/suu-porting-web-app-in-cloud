@@ -12,6 +12,8 @@ GigaSpaces XAP
 
 [Deploy aplikacji webowej](#deploy-aplikacji-webowej)
 
+[Deploy przykładowej aplikacji webowej](#deploy-przykladowej-aplikacji-webowe)
+
 ### Plan ###
 
 * Konfiguracja space'a tak żeby korzystał z Hibernate'a
@@ -87,6 +89,59 @@ Apache HTTP Sever. Gigaspacs ma natomiast agent’a, który monitoruje
 ilość instancji naszej aplikacji i odpowienio uaktualnia konfig
 Apache’a i prosi o reload jeśli jest potrzeba.
 
+### Deploy przykładowej aplikacji webowej ###
+
+>> Poniższa instrukcja została napisana pod systemy z rodziny Linux
+
+1. Instalacja chmury XAP
+Pobieramy [XAP LITE EDITION](http://www.gigaspaces.com/xap-download).
+Strona pozwala także wypełnić formularz, po którego wypełnieniu otrzymamy
+licencję pocztą elektroniczną.
+>> Dla potrzeb przykładu przyjmijmy że XAP_ROOT to katalog, w którym
+mamy zainstalowaną chmurę XAP
+1. Konfiguracja przykładowej aplikacji
+Przykładowa aplikacja, którą będziemy chcieli uruchomić znajduje się
+w lokalizacji: `$XAP_ROOT/examples/web/space-access`.
+Załóżmy, że chcemy żeby uruchomiła ona w dwóch
+instancjach: po jednej na każdy kontener. W tym celu ustawiamy
+odpowiednią linię w pliku
+`space-access/WebContent/META-INF/spring/sla.xml`:
+: `<os-sla:sla number-of-instances="2" max-instances-per-vm="1"/>`
+2. Przykładowej aplikacji webowej
+W głównym katalogu aplikacji wydajemy polecenie:
+`./build.sh dist`
+Powyższa komenda zbuduje nam plik war, który będziemy następnie deploy'ować.
+3. Uruchomienie GSM (Giga Space Manager), który zarządza kontenerami
+aplikacyjnymi w ramach chmury. Domyślnie tworzy on dwa takie kontenery
+(Gigaspace Service Container):
+`$XAP_ROOT/bin/gs-agent.sh`
+4. Uruchomienie space'a w ramach kontenera
+Nasza aplikacja potrzebuje space'a o nazwie `mySpace`, w którym
+przechowuje dane.  W celu uruchomienia 1 space'a, który ma 1 backup
+wydajemy polecenie:
+`$XAP_ROOT/bin/gs.sh deploy-space -cluster total_memeber=1,1 mySpace`
+5. Uruchomienia przykładowej aplikacji
+Teraz robimy deploy naszej przykładowej aplikacji:
+`./bin/gs.sh deploy examples/web/space-access-raw/SpaceAccess.war`
+W żargonie XAP każda instancja naszej aplikacji nazywa się
+*Processing Unit*.
+6. Sprawdzenie działania instancji aplikacji
+Domyślnie, pierwsza instancja aplikacji uruchamia się na porcie 8080,
+natomiast kolejna instancja na kolejnym porcie: 8081. Możemy teraz
+sprawdzić czy wszystko działa poprawnie odwiedzając URL'e:
+* http://127.0.0.1:8080/SpaceAccess/
+* http://127.0.0.1:8081/SpaceAccess/
+Dodając obiekt w ramach jednej instancji jest on też widoczny w drugiej.
+7. Obserwacja statystyk aplikacji w interfejsie graficznym
+XAP dostarcza też interfejs graficzny, który pozwala podejrzeć
+jakie aplikacje są uruchomione na platformie wraz z różnymi statystykami
+wykorzystania zasobów. W celu uruchomienia GUI wydajemy polecenie:
+`$XAP_ROOT/gs-ui.sh`
+Istnieje także interfejs webowy. Uruchamia się go poleceniem:
+`$XAP_ROOT/gs-webui.sh`
+8. Wyłączenie aplikacji
+Aby wyłączyć aplikację należy wydać polecenie:
+`./bin/gs.sh undeploy SpaceAcess`
 
 
 
