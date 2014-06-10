@@ -1,0 +1,5 @@
+package xap.hibernate;
+
+public enum ECategoryType {
+	SPORT, AUTOMOTIVE, CLOTHES, GADGETS, JEWELRY, ELECTRONICS, COMPUTERS, GARDEN, PHOTO, ENTERTAINTMENT;
+}
