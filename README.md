@@ -12,7 +12,7 @@ GigaSpaces XAP
 
 [Deploy aplikacji webowej](#deploy-aplikacji-webowej)
 
-[Deploy przykładowej aplikacji webowej](#deploy-przykladowej-aplikacji-webowe)
+[Deploy przykładowej aplikacji webowej](#deploy-przyk%C5%82adowej-aplikacji-webowej)
 
 ### Plan ###
 
