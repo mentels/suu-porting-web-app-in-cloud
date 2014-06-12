@@ -122,7 +122,7 @@ GSM uruchamiamy poleceniem:
 Nasza aplikacja potrzebuje space'a o nazwie `mySpace`, w którym
 przechowuje dane.  W celu uruchomienia 1 space'a, który ma 1 backup
 wydajemy polecenie:  
-`$XAP_ROOT/bin/gs.sh deploy-space -cluster total_memeber=1,1 mySpace`
+`$XAP_ROOT/bin/gs.sh deploy-space -cluster total_members=1,1 mySpace`
 5. Uruchomienia przykładowej aplikacji  
 Teraz robimy deploy naszej przykładowej aplikacji:  
 `./bin/gs.sh deploy examples/web/space-access-raw/SpaceAccess.war`
