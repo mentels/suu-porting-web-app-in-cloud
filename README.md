@@ -14,6 +14,8 @@ GigaSpaces XAP
 
 [Deploy przykładowej aplikacji webowej](#deploy-przyk%C5%82adowej-aplikacji-webowej)
 
+[Wyniki](RESULT.md)
+
 ### Plan ###
 
 * Konfiguracja space'a tak żeby korzystał z Hibernate'a
